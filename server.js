@@ -11,24 +11,6 @@ const usersRouter = require("./routers/usersRouter");
 
 const server = express();
 
-const sessionConfig = {
-  name: "cookie",
-  secret: "This is a secret phrase!",
-  cookie: {
-    httpOnly: true,
-    maxAge: 1000 * 60 * 2,
-    secure: false
-  },
-  resave: false,
-  saveUninitialized: true,
-  store: new KnexSessionsStore({
-    knex: require("./database/dbConfig"),
-    createtable: true,
-    clearInterval: 1000 * 60 * 15
-  })
-};
-
-server.use(session(sessionConfig));
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
