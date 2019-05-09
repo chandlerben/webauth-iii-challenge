@@ -976,6 +976,11 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+gitignore@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/gitignore/-/gitignore-0.6.0.tgz#8518e39d1e12f896eb0971e0f8c982e616ed765e"
+  integrity sha1-hRjjnR4S+JbrCXHg+MmC5hbtdl4=
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -1876,10 +1881,10 @@ node-pre-gyp@^0.12.0:
     semver "^5.3.0"
     tar "^4"
 
-node@^12.1.0:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/node/-/node-12.1.0.tgz#76303b0b360765dd343d1e021c283fab465876a1"
-  integrity sha512-WhAwVIfjIuvuuMT660SxCB6yltqxbJyH9eTUDN4Vd7qxjZpS2o2a1zjf8P8o6tObYgkbvXoTSxSCb7uHOH2clg==
+node@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/node/-/node-12.2.0.tgz#1c56b40d2bf1ba09683c1350317ae186a4b4c9e9"
+  integrity sha512-fW3R9dLW/R6MImarR8ETTKaeSAcECYcB0NL6xR4/K05h2M3M5t1Sf6hfMaIYr8mDBgTHwDvYxiwUA0RALWuwMQ==
   dependencies:
     node-bin-setup "^1.0.0"
 
