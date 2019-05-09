@@ -16,7 +16,7 @@ router.get("/users", (req, res) => {
       res.json(users);
     })
     .catch(error => {
-      sendUserError(500, error, res);
+      sendUserError(500, "What is going on?", res);
     });
 });
 

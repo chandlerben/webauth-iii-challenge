@@ -20,14 +20,13 @@ router.post("/login", (req, res) => {
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
-        req.session.username = user.username;
         res.status(200).json({ message: `Welcome ${user.username}!`, token });
       } else {
         sendUserError(401, "Your login is incorrect.", res);
       }
     })
     .catch(error => {
-      sendUserError(500, error, res);
+      sendUserError(500, "This is the error", res);
     });
 });
 

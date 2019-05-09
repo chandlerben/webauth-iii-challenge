@@ -4,10 +4,12 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const KnexSessionsStore = require("connect-session-knex")(session);
+const jwt = require("jsonwebtoken");
 
 const registerRouter = require("./routers/registerRouter");
 const loginRouter = require("./routers/loginRouter");
 const usersRouter = require("./routers/usersRouter");
+const secrets = require("./config/secrets");
 
 const server = express();
 
@@ -28,13 +30,16 @@ server.use(
 );
 
 function authenticationMiddleware(req, res, next) {
-  if (req.session && req.session.username) {
-    next();
-  } else {
-    res
-      .status(401)
-      .json({ message: "YOU SHALL NOT GET THE SECRET FILES, SCUM!" });
-  }
+  const token = req.headers.authorization;
+
+  jwt.verify(token, secrets.jwtSecret, (err, decodedToken) => {
+    if (err) {
+      res.status(400).json({ message: "YOU SHALL NOT PASS!" });
+    } else {
+      req.decodedToken = decodedToken;
+      next();
+    }
+  });
 }
 
 module.exports = server;
