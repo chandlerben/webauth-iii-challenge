@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-// import { Route, NavLink, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
   state = {
@@ -18,7 +18,6 @@ class SignUp extends React.Component {
     event.preventDefault();
     const endpoint1 = "/register";
     const endpoint2 = "/login";
-
     axios
       .post(endpoint1, this.state)
       .then(res => {
@@ -44,6 +43,9 @@ class SignUp extends React.Component {
   };
 
   render() {
+    if (this.state.toUsers === true) {
+      return <Redirect to="/users" />;
+    }
     return (
       <>
         <h3>Sign-Up</h3>
